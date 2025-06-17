@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(c33b5384-a6ae-4157-bf85-bb08292eeaf7.jpeg);
+  background-size: cover;
+  background-position: center center;
+  text-anchor: white;
+  color: white;
+  padding: 20px;
+  /* Adjusted to account for fixed header */
+}
+
+header {
+  background-color: transparent;
+  width: 100%;
+  position: sticky absolute;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+}
+.navigation a {
+  position: relative;
+  text-decoration: none;
+  margin-left: 15px;
+  color: white;
+  padding: 5px 0;
+  display: inline-block;
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: 50% 50% 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1) translateX(10px); /* Moves line to the right slightly */
+}
+
+.navigation a:hover {
+  color: rgb(13, 232, 50);
+}
+h3:hover {
+  color: rgb(13, 232, 50);
+}
+
+.form-container {
+  width: 300px; /* adjust as needed */
+  margin: 0 auto; /* centers it horizontally */
+  padding: 10px;
+  border-color: transparent;
+}
+.personal_Details {
+  padding: 5px;
+
+  border-color: transparent;
+}
+#firstname {
+  width: 250px;
+  padding: 5px;
+  margin: 5px 0;
+  background: transparent;
+  border-radius: 8px;
+  border-color: rgb(150, 237, 100);
+}
+#fullname {
+  width: 250px;
+  padding: 5px;
+  margin: 5px 0;
+  background: transparent;
+  border-radius: 8px;
+  border-color: rgb(150, 237, 100);
+}
+#email {
+  width: 250px;
+  padding: 5px;
+  margin: 5px 0;
+  background: transparent;
+  border-radius: 8px;
+  border-color: rgb(150, 237, 100);
+}
+#Date-of-Birth {
+  width: 250px;
+  padding: 5px;
+  margin: 5px 0;
+  background: transparent;
+  border-radius: 8px;
+  border-color: rgb(150, 237, 100);
+}
+
+#phone {
+  width: 250px;
+  padding: 5px;
+  margin: 5px 0;
+  background: transparent;
+  border-radius: 8px;
+  border-color: rgb(150, 237, 100);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-color: transparent;
+}
+
+.checkbox-group label:first-child {
+  margin-right: 0 auto; /* slight space after the question label */
+  white-space: nowrap;
+}
+.checkbox-group input[type="checkbox"] {
+  cursor: pointer;
+}
+.survey-questions {
+  border-color: transparent;
+}
+input[type="tel"] {
+  color: white;
+  background-color: white; /* optional, for contrast */
+}
+
+input[type="date"] {
+  color: white;
+  background-color: white; /* optional, for contrast */
+}
+input::placeholder {
+  color: White; /* Optional: to make placeholder more visible */
+}
+input[type="fullname"] {
+  color: white;
+  background-color: black; /* optional, for contrast */
+}
+input[type="email"] {
+  color: white;
+  background-color: black; /* optional, for contrast */
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  border-color: rgb(140, 223, 15);
+  border: 2px solid green;
+  cursor: pointer;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid green;
+}
+
+td:first-child {
+  text-align: left;
+  padding-right: 30px; /* space between statement and radio buttons */
+}
+
+input[type="radio"] {
+  transform: scale(1.2); /* optional: makes radio buttons a bit larger */
+  margin: 5px;
+  cursor: pointer;
+}
+
+th {
+  background-color: transparent;
+}
+
+tr:nth-child(even) {
+  background-color: transparent;
+}
+.submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+}
+.submit-button button {
+  background-color: darkgreen;
+  color: white;
+  font-size: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.submit-button button:hover {
+  background-color: rgb(58, 237, 58);
+}
+h1 {
+  text-align: center;
+  align-items: center;
+}
+h1:hover {
+  color: rgb(13, 133, 232);
+}
+.home-button button {
+  background-color: rgba(13, 158, 198, 0.701);
+  color: white;
+  font-size: 15px;
+}
+.home-button button:hover {
+  background-color: rgb(13, 133, 232);
+}
+/*.checkbox-container {
+  width: 300px; //adjust as needed 
+  margin: 0 auto; //centers it horizontally 
+  padding: 10px;
+  justify-content: space-between;
+  display: flex;
+  display: flex;
+  position: relative;
+  gap: 20px;
+}
+*/

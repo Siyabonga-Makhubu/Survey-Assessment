@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Survey collection</title>
+  </head>
+
+  <body>
+    <header>
+      <h3>Surveys</h3>
+      <nav class="navigation">
+        <a href="index.html">FILL OUT SURVEY</a>
+        <a href="view-survey-results.html">VIEW SURVEY RESULTS</a>
+      </nav>
+    </header>
+    <br /><br />
+
+    <br />
+    <form id="Fillup_Form" onsubmit="SubmitEvent(event)">
+      <fieldset class="personal_Details">
+        <legend>Personal Details :</legend>
+        <br />
+        <div class="form-container">
+          <div class="input_Box">
+            <label for="fullname">Full Name</label><br />
+            <input
+              type="fullname"
+              id="fullname"
+              name="firstname"
+              placeholder="Name and Surname"
+              required
+            />
+            <span class="icon"
+              ><ion-icon name="person-circle-outline"></ion-icon
+            ></span>
+          </div>
+
+          <div class="input_Box">
+            <label for="email">Email</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="username@mail"
+              required
+            />
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+          </div>
+
+          <div class="input_Box">
+            <label for="Date-of-Birth">Date of Birth:</label><br />
+            <input
+              type="date"
+              id="Date-of-Birth"
+              name="Date-of-Birth"
+              placeholder="dd-mm-yyyy"
+              required
+            />
+            <span class="icon"
+              ><ion-icon name="calendar-outline"></ion-icon
+            ></span>
+          </div>
+
+          <div class="input_Box">
+            <label for="phone">Contact Number:</label><br />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="011-222-3456"
+              maxlength="10"
+              required
+            />
+            <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
+          </div>
+        </div>
+      </fieldset>
+      <br /><br />
+
+      <fieldset class="survey-questions">
+        <label>Survey Questions:</label><br /><br />
+
+        <div class="checkbox-container">
+          <div class="checkbox-group">
+            <label>What is your favorite meal?</label>
+            <label
+              ><input type="checkbox" name="food" />
+              Pizza</label
+            >
+            <label
+              ><input type="checkbox" name="food"  />
+              Pasta</label
+            >
+            <label
+              ><input type="checkbox" name="food" /> Pap
+              and Wors</label
+            >
+            <label
+              ><input type="checkbox" name="food"  />
+              Other</label
+            >
+          </div><br /><br />
+          <div class="table-group">
+            <label>Please rate your level of agreement on a scale from 1 to 5, with 1 being "strongly agree" and 5 being "strongly disagree"</label><br />
+            <table>
+              <tr>
+                <th>Statement</th>
+                <th>Strongly Agree</th>
+                <th>Agree</th>
+                <th>Neutral</th>
+                <th>Disagree</th>
+                <th>Strongly Disagree</th>
+              </tr>
+              <tr>
+                <td>I like to watch movies</td>
+                <td><input type="radio" name="statement1" value="1" /></td>
+                <td><input type="radio" name="statement1" value="2" /></td>
+                <td><input type="radio" name="statement1" value="3" /></td>
+                <td><input type="radio" name="statement1" value="4" /></td>
+                <td><input type="radio" name="statement1" value="5" /></td>
+              </tr>
+              <tr>
+                <td>I like to listern to radio</td>
+                <td><input type="radio" name="statement2" value="1" /></td>
+                <td><input type="radio" name="statement2" value="2" /></td>
+                <td><input type="radio" name="statement2" value="3" /></td>
+                <td><input type="radio" name="statement2" value="4" /></td>
+                <td><input type="radio" name="statement2" value="5" /></td>
+              </tr>
+              <tr>
+                <td>I like to eat out</td>
+                <td><input type="radio" name="statement3" value="1" /></td>
+                <td><input type="radio" name="statement3" value="2" /></td>
+                <td><input type="radio" name="statement3" value="3" /></td>
+                <td><input type="radio" name="statement3" value="4" /></td>
+                <td><input type="radio" name="statement3" value="5" /></td>
+              </tr>
+              <tr>
+                <td>I like to watch TV</td>
+                <td><input type="radio" name="statement4" value="1" /></td>
+                <td><input type="radio" name="statement4" value="2" /></td>
+                <td><input type="radio" name="statement4" value="3" /></td>
+                <td><input type="radio" name="statement4" value="4" /></td>
+                <td><input type="radio" name="statement4" value="5" /></td>
+              </tr>
+            </table>  
+          </div>
+      </fieldset>
+    </form>
+
+    <br />
+    <div class="submit-button">
+      <button type="submit">Submit</button>
+    </div>
+  </body>
+
+  <script src="script.js"></script>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script>
+    function onlyOne(checkbox) {
+      const checkboxes = document.getElementsByName("food");
+      checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false;
+      });
+    }
+  </script>
+  
+    <script>
+      document.getElementById("submit").addEventListener("click", submitForm);
+      document.getElementById("homelink").addEventListener("click", goHome);
+
+      function submitForm(e) {
+        e.preventDefault(); 
+        const form = new FormData(document.querySelector("#Fillup_Form"));
+        form.append("apiKey", apiKey);
+
+
+        fetch(rootPath + "/survey questions", {
+          method: 'POST',
+          headers: {'accept': 'application/json, *_*'},
+          body: form
+        })
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (data) {
+            if (data == "1") {
+              alert("Survey filled successfully!");
+              goHome();
+            } else {
+              alert("Error adding contact: " + data);
+              goHome()
+            }
+          });
+      }
+      function goHome() {
+        window.open("index.html", "_self");
+      }
+    </script>
+</html>
