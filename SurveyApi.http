@@ -1,0 +1,31 @@
+@SurveyApi_HostAddress = http://localhost:5253
+
+# Get all survey results
+GET {{SurveyApi_HostAddress}}/api/survey/results
+Accept: application/json
+
+###
+
+# Get specific survey by ID
+GET {{SurveyApi_HostAddress}}/api/survey/1
+Accept: application/json
+
+###
+
+# Submit a new survey
+POST {{SurveyApi_HostAddress}}/api/survey
+Content-Type: application/json
+
+{
+  "fullName": "John Doe",
+  "email": "john.doe@example.com",
+  "dateOfBirth": "1990-01-15",
+  "contactNumbers": "011-222-3456",
+  "favoriteFood": "Pizza",
+  "movieRating": 4,
+  "radioRating": 3,
+  "eatOutRating": 5,
+  "tvRating": 4
+}
+
+###
