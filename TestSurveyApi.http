@@ -1,0 +1,61 @@
+### Survey API Test Requests
+
+# Test the Survey API endpoints  
+# Run these after starting the application with: dotnet run --project SurveyApi.csproj --urls "http://localhost:5001"
+
+### Submit a new survey (demonstrates both checkboxes and radio buttons)
+POST http://localhost:5001/api/survey/submit
+Content-Type: application/json
+
+{
+  "fullName": "Test User",
+  "email": "test@example.com", 
+  "dateOfBirth": "1995-03-20",
+  "contactNumbers": "+1-555-999-0000",
+  "favoriteFoods": ["Pizza", "Pasta"],
+  "movieRating": 4,
+  "radioRating": 3,
+  "eatOutRating": 5,
+  "tvRating": 2
+}
+
+### Get all surveys
+GET http://localhost:5001/api/survey/all
+
+### Get survey statistics  
+GET http://localhost:5001/api/survey/statistics
+
+### Get a specific survey by ID
+GET http://localhost:5001/api/survey/1
+
+### Test multiple food selections (checkbox behavior)
+POST http://localhost:5001/api/survey/submit
+Content-Type: application/json
+
+{
+  "fullName": "Multi Food User",
+  "email": "multi@example.com",
+  "dateOfBirth": "1988-12-10", 
+  "contactNumbers": "+1-555-888-0000",
+  "favoriteFoods": ["Pizza", "Pasta", "Pap and Wors", "Other"],
+  "movieRating": 5,
+  "radioRating": 4,
+  "eatOutRating": 3,
+  "tvRating": 4
+}
+
+### Test single food selection  
+POST http://localhost:5001/api/survey/submit
+Content-Type: application/json
+
+{
+  "fullName": "Single Food User", 
+  "email": "single@example.com",
+  "dateOfBirth": "1992-07-05",
+  "contactNumbers": "+1-555-777-0000", 
+  "favoriteFoods": ["Pap and Wors"],
+  "movieRating": 2,
+  "radioRating": 1,
+  "eatOutRating": 4,
+  "tvRating": 5
+}

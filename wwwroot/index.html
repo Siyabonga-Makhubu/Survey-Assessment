@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Survey collection</title>
+  </head>
+
+  <body>
+    <header>
+      <h3>Surveys</h3>
+      <nav class="navigation">
+        <a href="index.html">FILL OUT SURVEY</a>
+        <a href="view-survey-results.html">VIEW SURVEY RESULTS</a>
+      </nav>
+    </header>
+    <br /><br />
+
+    <br />
+    <form id="Fillup_Form" onsubmit="SubmitEvent(event)">
+      <fieldset class="personal_Details">
+        <legend>Personal Details :</legend>
+        <br />
+        <div class="form-container">
+          <div class="input_Box">
+            <label for="fullname">Full Name</label><br />            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              placeholder="Name and Surname"
+              required
+            />
+            <span class="icon"
+              ><ion-icon name="person-circle-outline"></ion-icon
+            ></span>
+          </div>
+
+          <div class="input_Box">
+            <label for="email">Email</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="username@mail"
+              required
+            />
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+          </div>          <div class="input_Box">
+            <label for="Date-of-Birth">Date of Birth:</label><br />
+            <input
+              type="date"
+              id="Date-of-Birth"
+              name="Date-of-Birth"
+              placeholder="dd-mm-yyyy"
+              required
+            />
+            <span class="icon"
+              ><ion-icon name="calendar-outline"></ion-icon
+            ></span>
+          </div>
+
+          <div class="input_Box">
+            <label for="phone">Contact Number:</label><br />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="011-222-3456"
+              maxlength="10"
+              required
+            />
+            <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
+          </div>
+        </div>
+      </fieldset>
+      <br /><br />
+
+      <fieldset class="survey-questions">
+        <label>Survey Questions:</label><br /><br />
+
+        <div class="checkbox-container">
+          <div class="checkbox-group">
+            <label>What is your favorite meal?</label>            <label
+              ><input type="checkbox" name="food" value="Pizza" />
+              Pizza</label
+            >
+            <label
+              ><input type="checkbox" name="food" value="Pasta" />
+              Pasta</label
+            >
+            <label
+              ><input type="checkbox" name="food" value="Pap and Wors" /> Pap
+              and Wors</label
+            >
+            <label
+              ><input type="checkbox" name="food" value="Other" />
+              Other</label
+            >
+          </div><br /><br />
+          <div class="table-group">
+            <label>Please rate your level of agreement on a scale from 1 to 5, with 1 being "strongly agree" and 5 being "strongly disagree"</label><br />
+            <table>
+              <tr>
+                <th>Statement</th>
+                <th>Strongly Agree</th>
+                <th>Agree</th>
+                <th>Neutral</th>
+                <th>Disagree</th>
+                <th>Strongly Disagree</th>
+              </tr>
+              <tr>
+                <td>I like to watch movies</td>
+                <td><input type="radio" name="statement1" value="1" /></td>
+                <td><input type="radio" name="statement1" value="2" /></td>
+                <td><input type="radio" name="statement1" value="3" /></td>
+                <td><input type="radio" name="statement1" value="4" /></td>
+                <td><input type="radio" name="statement1" value="5" /></td>
+              </tr>              <tr>
+                <td>I like to listen to radio</td>
+                <td><input type="radio" name="statement2" value="1" /></td>
+                <td><input type="radio" name="statement2" value="2" /></td>
+                <td><input type="radio" name="statement2" value="3" /></td>
+                <td><input type="radio" name="statement2" value="4" /></td>
+                <td><input type="radio" name="statement2" value="5" /></td>
+              </tr>
+              <tr>
+                <td>I like to eat out</td>
+                <td><input type="radio" name="statement3" value="1" /></td>
+                <td><input type="radio" name="statement3" value="2" /></td>
+                <td><input type="radio" name="statement3" value="3" /></td>
+                <td><input type="radio" name="statement3" value="4" /></td>
+                <td><input type="radio" name="statement3" value="5" /></td>
+              </tr>
+              <tr>
+                <td>I like to watch TV</td>
+                <td><input type="radio" name="statement4" value="1" /></td>
+                <td><input type="radio" name="statement4" value="2" /></td>
+                <td><input type="radio" name="statement4" value="3" /></td>
+                <td><input type="radio" name="statement4" value="4" /></td>
+                <td><input type="radio" name="statement4" value="5" /></td>
+              </tr>            </table>  
+          </div>
+      </fieldset>
+
+      <br />
+      <div class="submit-button">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+
+  <script src="script.js"></script>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>  <script>
+    // Set dynamic date constraints for age validation (5-120 years)
+    document.addEventListener('DOMContentLoaded', function() {
+      const dateInput = document.getElementById('Date-of-Birth');
+      const today = new Date();
+      const currentYear = today.getFullYear();
+      
+      // Maximum date: 5 years ago (minimum age of 5)
+      const maxYear = currentYear - 5;
+      const maxDate = `${maxYear}-12-31`;
+      
+      // Minimum date: 120 years ago (maximum age of 120)
+      const minYear = currentYear - 120;
+      const minDate = `${minYear}-01-01`;
+      
+      dateInput.setAttribute('min', minDate);
+      dateInput.setAttribute('max', maxDate);
+    });
+    
+    // Remove the onlyOne function since we want to allow multiple checkboxes for food
+    // The checkboxes will work naturally for multi-select
+  </script>
+</html>
